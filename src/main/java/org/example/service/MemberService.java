@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
 public interface MemberService {
 
     public void register(RegisterRequestDto registerRequestDto);
-    public ResponseEntity<?> emailCheck(EmailRequestDto emailRequestDto);
+    public boolean emailExist(EmailRequestDto emailRequestDto);
 }

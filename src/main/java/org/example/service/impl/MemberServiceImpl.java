@@ -6,7 +6,6 @@ import org.example.domain.member.Member;
 import org.example.domain.member.MemberRepository;
 import org.example.dto.register.EmailRequestDto;
 import org.example.dto.register.RegisterRequestDto;
-import org.example.common.exception.UserExistException;
 import org.example.service.MemberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,15 +42,10 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     @Transactional
-    public ResponseEntity<?> emailCheck(EmailRequestDto emailRequestDto) {
+    public boolean emailExist(EmailRequestDto emailRequestDto) {
         Optional<Member> existingUser = memberRepository.findByEmail(emailRequestDto.getEmail());
 
         //이메일에 중복이 있는지 체크
-        if(existingUser.isPresent()){
-            return ResponseEntity.badRequest()
-                    .body(Collections.singletonMap("error", "중복된 이메일이 있습니다"));
-        }
-
-        return ResponseEntity.ok().body(Collections.singletonMap("message","중복된 이메일이 없습니다"));
+        return existingUser.isPresent();
     }
 }
