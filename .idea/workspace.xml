@@ -13,6 +13,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/EmailRequestDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
@@ -46,6 +47,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -65,6 +67,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "feature/register",
     "ignore.virus.scanning.warn.message": "true",
     "project.structure.last.edited": "Project",
@@ -126,14 +130,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699430959315</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="chore: Member 요청을 받는 Rest Controller 구현">
+      <option name="closed" value="true" />
+      <created>1699435826751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435826751</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs: 프로젝트 생성 및 의존성 추가" />
-    <MESSAGE value="docs: git ignore 변경" />
     <MESSAGE value="chore: 회원가입 요청 Dto 작성 및 유효성 검사 패턴 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: 회원가입 요청 Dto 작성 및 유효성 검사 패턴 추가" />
+    <MESSAGE value="docs: git ignore 변경" />
+    <MESSAGE value="chore: Member 요청을 받는 Rest Controller 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: Member 요청을 받는 Rest Controller 구현" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
