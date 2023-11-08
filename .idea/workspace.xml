@@ -4,20 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="docs: git ignore 변경">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/exception/UserExistException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/MemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/EmailRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
+    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="c">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/register/EmailRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/EmailRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,10 +70,19 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "reference.idesettings.debugger.capture"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.controller" />
+      <recent name="org.example.service.impl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.MemberApiControllerTest.유효성_검사를_실패하면_bad_request_반환한다">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="itblog.main" />
@@ -91,8 +96,75 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MemberApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.MemberApiControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.MemberApiControllerTest" />
+      <option name="METHOD_NAME" value="유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.MemberApiControllerTest" />
+      <option name="METHOD_NAME" value="유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberApiControllerTest.유효성_검사를_실패하면_bad_request_반환한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.MemberApiControllerTest" />
+      <option name="METHOD_NAME" value="유효성_검사를_실패하면_bad_request_반환한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_실패하면_bad_request_반환한다" />
+        <item itemvalue="JUnit.MemberApiControllerTest" />
+        <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다" />
+        <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -138,15 +210,43 @@
       <option name="project" value="LOCAL" />
       <updated>1699435826751</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="chore: email 요청을 받는 Dto 작성">
+      <option name="closed" value="true" />
+      <created>1699435898347</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435898347</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chore: MemberService Interface 및 구현체 작성&#10;&#10;email check login 추가">
+      <option name="closed" value="true" />
+      <created>1699435946440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435946440</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: Member Domain 추가&#10;&#10;Member Entity, Repository, 열거 타입의 Role 추가">
+      <option name="closed" value="true" />
+      <created>1699435977959</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435977959</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="docs: 프로젝트 생성 및 의존성 추가" />
     <MESSAGE value="chore: 회원가입 요청 Dto 작성 및 유효성 검사 패턴 추가" />
-    <MESSAGE value="docs: git ignore 변경" />
     <MESSAGE value="chore: Member 요청을 받는 Rest Controller 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: Member 요청을 받는 Rest Controller 구현" />
+    <MESSAGE value="docs: git ignore 변경" />
+    <MESSAGE value="chore: email 요청을 받는 Dto 작성" />
+    <MESSAGE value="chore: MemberService Interface 및 구현체 작성&#10;&#10;email check login 추가" />
+    <MESSAGE value="chore: Member Domain 추가&#10;&#10;Member Entity, Repository, 열거 타입의 Role 추가" />
+    <MESSAGE value="c" />
+    <option name="LAST_COMMIT_MESSAGE" value="c" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
