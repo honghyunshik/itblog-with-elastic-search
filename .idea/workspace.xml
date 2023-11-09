@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="chore: memberApiController emailCheck 메서드">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/constants/WhiteList.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" afterDir="false" />
@@ -266,7 +263,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699452827596</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="chore: spring-security 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1699514337492</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514337492</updated>
+    </task>
+    <task id="LOCAL-00013" summary="chore: security 인증 안받는 whitelist 클래스 작성">
+      <option name="closed" value="true" />
+      <created>1699514375563</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514375563</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -282,8 +295,10 @@
     <MESSAGE value="chore: memberApiController emailCheck 메서드 작성" />
     <MESSAGE value="chore: 이메일 요청 Dto 작성" />
     <MESSAGE value="chore: MemberService 및 구현체 emailExist 내부 변경" />
+    <MESSAGE value="chore: spring-security 의존성 추가" />
     <MESSAGE value="chore: memberApiController emailCheck 메서드" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: memberApiController emailCheck 메서드" />
+    <MESSAGE value="chore: security 인증 안받는 whitelist 클래스 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: security 인증 안받는 whitelist 클래스 작성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -24,9 +24,16 @@ public class MemberApiController {
     private final MemberService memberService;
 
     @PostMapping("/register")
-    public void register(@Valid @RequestBody RegisterRequestDto registerRequestDto, Errors errors){
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterRequestDto registerRequestDto, Errors errors){
+
+        //회원가입 Dto 유효성 검사 실패시 bad request + error 내용 반환
+        if(errors.hasErrors()){
+            return ResponseEntity.badRequest().body(Collections.singletonMap("errors", errors.getAllErrors()));
+        }
 
         memberService.register(registerRequestDto);
+
+        return ResponseEntity.ok().body(Collections.singletonMap("message","회원가입이 완료되었습니다"));
     }
 
     @PostMapping("/email")
