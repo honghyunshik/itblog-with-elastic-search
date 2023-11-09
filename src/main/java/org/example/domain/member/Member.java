@@ -1,8 +1,10 @@
 package org.example.domain.member;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 
 @Getter
 @NoArgsConstructor
@@ -36,4 +38,16 @@ public class Member {
     @Enumerated(EnumType.STRING)
     @Column(name = "member_role")
     private Role role;
+
+    @Builder
+    public Member(String birth, String email, String name, String password,String gender, Role role,
+                  String phoneNumber){
+        this.birth = birth;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.gender = gender;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+    }
 }
