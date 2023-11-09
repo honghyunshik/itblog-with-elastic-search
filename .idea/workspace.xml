@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/constants/JwtConstants.java" afterDir="false" />
+    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthorizationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature/register",
+    "git-widget-placeholder": "feature/login",
     "ignore.virus.scanning.warn.message": "true",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
@@ -326,7 +323,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699514564434</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="chore: Jwt 관련 상수 저장">
+      <option name="closed" value="true" />
+      <created>1699517069425</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699517069425</updated>
+    </task>
+    <task id="LOCAL-00021" summary="test: security config에 jwt filter 추가">
+      <option name="closed" value="true" />
+      <created>1699517095121</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1699517095121</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -350,8 +363,10 @@
     <MESSAGE value="chore: RegisterRequestDto에 toEntity() 메서드 추가" />
     <MESSAGE value="chore: service에 register method 구현" />
     <MESSAGE value="chore: memberApiController emailCheck 메서드" />
+    <MESSAGE value="chore: Jwt 관련 상수 저장" />
     <MESSAGE value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
+    <MESSAGE value="test: security config에 jwt filter 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: security config에 jwt filter 추가" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
