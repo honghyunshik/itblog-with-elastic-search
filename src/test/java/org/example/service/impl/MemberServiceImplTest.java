@@ -3,6 +3,7 @@ package org.example.service.impl;
 import org.example.domain.member.Member;
 import org.example.domain.member.MemberRepository;
 import org.example.dto.register.EmailRequestDto;
+import org.example.dto.register.RegisterRequestDto;
 import org.example.service.MemberService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Optional;
 
@@ -23,6 +25,8 @@ class MemberServiceImplTest {
     private MemberServiceImpl memberService;
     @Mock
     private MemberRepository memberRepository;
+    @Mock
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Test
     public void 중복된_이메일이_있는경우_true_반환한다(){
@@ -38,5 +42,14 @@ class MemberServiceImplTest {
         when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.empty());
 
         assertFalse(memberService.emailExist(emailRequestDto));
+    }
+
+    @Test
+    public void BCrypt로_비밀번호를_암호화한다(){
+        RegisterRequestDto registerRequestDto = new RegisterRequestDto();
+        registerRequestDto.setPassword("password");
+        when(bCryptPasswordEncoder.encode(registerRequestDto.getPassword())).thenReturn("encrypt");
+        memberService.register(registerRequestDto);
+        assertEquals(registerRequestDto.getPassword(),"encrypt");
     }
 }
