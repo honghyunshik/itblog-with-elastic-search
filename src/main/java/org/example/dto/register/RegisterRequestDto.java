@@ -3,13 +3,12 @@ package org.example.dto.register;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.example.domain.member.Member;
+import org.example.domain.member.Role;
 
-@Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequestDto {
@@ -30,11 +29,6 @@ public class RegisterRequestDto {
     private String name;
 
     @NotBlank
-    @NotNull(message = "닉네임은 필수 입력사항입니다")
-    @Pattern(regexp = "^[가-힣a-zA-Z\\d]{2,8}$", message = "닉네임은 최소 두글자, 최대 8글자로 특수문자를 포함하지 않습니다")
-    private String nickname;
-
-    @NotBlank
     @NotNull(message = "비밀번호는 필수 입력사항입니다")
     @Pattern(regexp = "^[a-zA-Z\\d`~!@#$%^&*()-_=+]{8,12}$")
     private String password;
@@ -46,4 +40,16 @@ public class RegisterRequestDto {
     @NotNull
     @Pattern(regexp = "^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", message = "전화번호 양식을 확인해주세요")
     private String phoneNumber;
+
+    public Member toEntity(){
+        return Member.builder()
+                .birth(this.birth)
+                .email(this.email)
+                .name(this.name)
+                .gender(this.gender)
+                .password(this.password)
+                .role(Role.USER)
+                .phoneNumber(this.phoneNumber)
+                .build();
+    }
 }
