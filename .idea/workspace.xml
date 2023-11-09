@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="chore: memberApiController emailCheck 메서드">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
+    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/constants/JwtConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +78,7 @@
       <recent name="org.example.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.MemberServiceImplTest.BCrypt로_비밀번호를_암호화한다">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="itblog.main" />
@@ -104,22 +103,6 @@
       <option name="PACKAGE_NAME" value="org.example.controller" />
       <option name="MAIN_CLASS_NAME" value="org.example.controller.MemberApiControllerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="itblog.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example.controller" />
-      <option name="MAIN_CLASS_NAME" value="org.example.controller.MemberApiControllerTest" />
-      <option name="METHOD_NAME" value="유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,13 +139,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MemberServiceImplTest.BCrypt로_비밀번호를_암호화한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="org.example.service.impl.MemberServiceImplTest" />
+      <option name="METHOD_NAME" value="BCrypt로_비밀번호를_암호화한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberServiceImplTest.BCrypt로_비밀번호를_암호화한다" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MemberApiControllerTest" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_실패하면_bad_request_반환한다" />
-        <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +278,55 @@
       <option name="project" value="LOCAL" />
       <updated>1699514375563</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="chore: WebSecurityConfig 초안 작성&#10;&#10;JwtFilter 아직 안넣음">
+      <option name="closed" value="true" />
+      <created>1699514409064</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514409064</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore: memberApiController register Method 작성">
+      <option name="closed" value="true" />
+      <created>1699514438455</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514438455</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chore: Member Entity에 빌더패턴 추가">
+      <option name="closed" value="true" />
+      <created>1699514465791</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514465791</updated>
+    </task>
+    <task id="LOCAL-00017" summary="chore: RegisterRequestDto에 toEntity() 메서드 추가">
+      <option name="closed" value="true" />
+      <created>1699514502905</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514502905</updated>
+    </task>
+    <task id="LOCAL-00018" summary="chore: service에 register method 구현">
+      <option name="closed" value="true" />
+      <created>1699514526445</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514526445</updated>
+    </task>
+    <task id="LOCAL-00019" summary="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto">
+      <option name="closed" value="true" />
+      <created>1699514564434</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514564434</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -296,9 +343,15 @@
     <MESSAGE value="chore: 이메일 요청 Dto 작성" />
     <MESSAGE value="chore: MemberService 및 구현체 emailExist 내부 변경" />
     <MESSAGE value="chore: spring-security 의존성 추가" />
-    <MESSAGE value="chore: memberApiController emailCheck 메서드" />
     <MESSAGE value="chore: security 인증 안받는 whitelist 클래스 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: security 인증 안받는 whitelist 클래스 작성" />
+    <MESSAGE value="chore: WebSecurityConfig 초안 작성&#10;&#10;JwtFilter 아직 안넣음" />
+    <MESSAGE value="chore: memberApiController register Method 작성" />
+    <MESSAGE value="chore: Member Entity에 빌더패턴 추가" />
+    <MESSAGE value="chore: RegisterRequestDto에 toEntity() 메서드 추가" />
+    <MESSAGE value="chore: service에 register method 구현" />
+    <MESSAGE value="chore: memberApiController emailCheck 메서드" />
+    <MESSAGE value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
+    <option name="LAST_COMMIT_MESSAGE" value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
