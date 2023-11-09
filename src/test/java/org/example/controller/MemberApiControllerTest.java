@@ -43,26 +43,26 @@ class MemberApiControllerTest {
 
     @Test
     public void 유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다() throws Exception{
-        EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
-        given(this.memberService.emailExist(emailRequestDto))
+        EmailRequestDto duplicatedEmailRequestDto = new EmailRequestDto("admin@naver.com");
+        given(this.memberService.emailExist(duplicatedEmailRequestDto))
                 .willReturn(true);
 
         this.mvc.perform(post("/api/v1/member/email")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(emailRequestDto)))
+                        .content(objectMapper.writeValueAsString(duplicatedEmailRequestDto)))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.error").value("중복된 이메일이 존재합니다"));
     }
 
     @Test
     public void 유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다() throws Exception{
-        EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
-        given(this.memberService.emailExist(emailRequestDto))
+        EmailRequestDto successEmailRequestDto = new EmailRequestDto("admin@naver.com");
+        given(this.memberService.emailExist(successEmailRequestDto))
                 .willReturn(false);
 
         this.mvc.perform(post("/api/v1/member/email")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(emailRequestDto)))
+                        .content(objectMapper.writeValueAsString(successEmailRequestDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.message").value("중복된 이메일이 없습니다"));
     }
