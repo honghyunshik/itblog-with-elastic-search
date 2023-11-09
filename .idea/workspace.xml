@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="chore: memberApiController emailCheck 메서드">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/constants/WhiteList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/register/EmailRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/EmailRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/register/RegisterRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +42,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -161,9 +162,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MemberApiControllerTest" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_실패하면_bad_request_반환한다" />
-        <item itemvalue="JUnit.MemberApiControllerTest" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이_아니면_200_반환한다" />
       </list>
     </recent_temporary>
@@ -241,7 +242,31 @@
       <option name="project" value="LOCAL" />
       <updated>1699449094039</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="chore: memberApiController emailCheck 메서드 작성">
+      <option name="closed" value="true" />
+      <created>1699452757165</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699452757166</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: 이메일 요청 Dto 작성">
+      <option name="closed" value="true" />
+      <created>1699452788767</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699452788767</updated>
+    </task>
+    <task id="LOCAL-00011" summary="chore: MemberService 및 구현체 emailExist 내부 변경">
+      <option name="closed" value="true" />
+      <created>1699452827596</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699452827596</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -254,7 +279,11 @@
     <MESSAGE value="chore: Member Domain 추가&#10;&#10;Member Entity, Repository, 열거 타입의 Role 추가" />
     <MESSAGE value="chore: spring strater test 의존성 추가" />
     <MESSAGE value="c" />
-    <option name="LAST_COMMIT_MESSAGE" value="c" />
+    <MESSAGE value="chore: memberApiController emailCheck 메서드 작성" />
+    <MESSAGE value="chore: 이메일 요청 Dto 작성" />
+    <MESSAGE value="chore: MemberService 및 구현체 emailExist 내부 변경" />
+    <MESSAGE value="chore: memberApiController emailCheck 메서드" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: memberApiController emailCheck 메서드" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
