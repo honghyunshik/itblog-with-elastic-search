@@ -3,9 +3,13 @@ package org.example.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.common.constants.JwtConstants;
+import org.example.dto.login.LoginRequestDto;
+import org.example.dto.login.TokenInfo;
 import org.example.dto.register.EmailRequestDto;
 import org.example.dto.register.RegisterRequestDto;
 import org.example.service.MemberService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,13 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
 
-@Slf4j
 @RequestMapping(value = "/api/v1/member")
 @RestController
 @RequiredArgsConstructor
 public class MemberApiController {
 
     private final MemberService memberService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto loginRequestDto,Errors errors){
+        if(errors.hasErrors()){
+            return ResponseEntity.badRequest().body(Collections.singletonMap("errors", errors.getAllErrors()));
+        }
+        TokenInfo tokenInfo = memberService.login(loginRequestDto);
+        return ResponseEntity.ok().header(JwtConstants.TYPE,tokenInfo.getAccessToken()).build();
+    }
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequestDto registerRequestDto, Errors errors){
