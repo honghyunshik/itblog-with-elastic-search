@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthorizationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/exception/EmailNotExistingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/exception/PasswordNotMatchingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/JwtTokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/handler/CustomAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/login/LoginRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/login/TokenInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/annotation/WithMockCustomUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/SpringSecurityTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/common/constants/WhiteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/common/constants/WhiteList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthorizationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/impl/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,9 +55,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="HTML File" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -54,6 +77,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -74,8 +98,14 @@
       <recent name="org.example.controller" />
       <recent name="org.example.service.impl" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.dto.login" />
+      <recent name="org.example.dto" />
+      <recent name="org.example.config" />
+      <recent name="org.example.config.handler" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberServiceImplTest.BCrypt로_비밀번호를_암호화한다">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="itblog.main" />
@@ -154,8 +184,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MemberServiceImplTest.BCrypt로_비밀번호를_암호화한다" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MemberServiceImplTest.BCrypt로_비밀번호를_암호화한다" />
         <item itemvalue="JUnit.MemberApiControllerTest" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_성공하고_중복된_이메일이면_bad_request_반환한다" />
         <item itemvalue="JUnit.MemberApiControllerTest.유효성_검사를_실패하면_bad_request_반환한다" />
