@@ -2,7 +2,8 @@ package org.example.config;
 
 import lombok.RequiredArgsConstructor;
 import org.example.common.constants.WhiteList;
-import org.example.config.filter.JwtAuthorizationFilter;
+import org.example.config.filter.JwtAuthenticationFilter;
+import org.example.config.handler.CustomAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,7 +18,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class WebSecurityConfig {
 
-    private final JwtAuthorizationFilter jwtAuthorizationFilter;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
@@ -32,7 +34,8 @@ public class WebSecurityConfig {
                 .csrf((csrf) -> csrf.disable())
                 .sessionManagement((sessionManagement)->
                         sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .exceptionHandling(handler->handler.authenticationEntryPoint(customAuthenticationEntryPoint));;
         return http.build();
     }
     @Bean

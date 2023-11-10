@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/exception/EmailNotExistingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/common/exception/PasswordNotMatchingException.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/JwtTokenProvider.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/config/handler/CustomAuthenticationEntryPoint.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/IndexController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/login/LoginRequestDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/login/TokenInfo.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/annotation/WithMockCustomUser.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/SpringSecurityTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/common/constants/WhiteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/common/constants/WhiteList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthorizationFilter.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/domain/member/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/MemberService.java" afterDir="false" />
@@ -369,15 +361,66 @@
       <option name="project" value="LOCAL" />
       <updated>1699517095121</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="chore: json 및 spring security test 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1699606698783</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606698783</updated>
+    </task>
+    <task id="LOCAL-00023" summary="docs: WhiteList에 login url 추가">
+      <option name="closed" value="true" />
+      <created>1699606735674</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606735674</updated>
+    </task>
+    <task id="LOCAL-00024" summary="chore: 비밀번호 틀림 예외, 이메일 존재안함 예외 추가">
+      <option name="closed" value="true" />
+      <created>1699606808435</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606808435</updated>
+    </task>
+    <task id="LOCAL-00025" summary="chore: jwt filter 구현">
+      <option name="closed" value="true" />
+      <created>1699606848212</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606848212</updated>
+    </task>
+    <task id="LOCAL-00026" summary="chore: Authorization -&gt; Authentication 파일 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699606936483</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606936483</updated>
+    </task>
+    <task id="LOCAL-00027" summary="chore: JWT 인증 실패 핸들러 구현">
+      <option name="closed" value="true" />
+      <created>1699606966021</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606966021</updated>
+    </task>
+    <task id="LOCAL-00028" summary="chore: JWT Token 생성 및 유효성 검사 클래스 구현">
+      <option name="closed" value="true" />
+      <created>1699606993007</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606993007</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs: 프로젝트 생성 및 의존성 추가" />
-    <MESSAGE value="chore: 회원가입 요청 Dto 작성 및 유효성 검사 패턴 추가" />
-    <MESSAGE value="chore: Member 요청을 받는 Rest Controller 구현" />
-    <MESSAGE value="docs: git ignore 변경" />
-    <MESSAGE value="chore: email 요청을 받는 Dto 작성" />
     <MESSAGE value="chore: MemberService Interface 및 구현체 작성&#10;&#10;email check login 추가" />
     <MESSAGE value="chore: Member Domain 추가&#10;&#10;Member Entity, Repository, 열거 타입의 Role 추가" />
     <MESSAGE value="chore: spring strater test 의존성 추가" />
@@ -394,9 +437,16 @@
     <MESSAGE value="chore: service에 register method 구현" />
     <MESSAGE value="chore: memberApiController emailCheck 메서드" />
     <MESSAGE value="chore: Jwt 관련 상수 저장" />
-    <MESSAGE value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
     <MESSAGE value="test: security config에 jwt filter 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="test: security config에 jwt filter 추가" />
+    <MESSAGE value="chore: json 및 spring security test 의존성 추가" />
+    <MESSAGE value="docs: WhiteList에 login url 추가" />
+    <MESSAGE value="chore: 비밀번호 틀림 예외, 이메일 존재안함 예외 추가" />
+    <MESSAGE value="chore: jwt filter 구현" />
+    <MESSAGE value="chore: Authorization -&gt; Authentication 파일 이름 변경" />
+    <MESSAGE value="chore: JWT 인증 실패 핸들러 구현" />
+    <MESSAGE value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
+    <MESSAGE value="chore: JWT Token 생성 및 유효성 검사 클래스 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: JWT Token 생성 및 유효성 검사 클래스 구현" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
