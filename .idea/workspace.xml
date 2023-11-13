@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="docs: 프로젝트 생성 및 의존성 추가">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="chore: Member">
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/annotation/WithMockCustomUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/SpringSecurityTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/factory/WithMockCustomUserSecurityContextFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +19,30 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="JUnit5 Test Class" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,14 +58,124 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "feature/login",
+    "ignore.virus.scanning.warn.message": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.idesettings.debugger.capture"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.controller" />
+      <recent name="org.example.service.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.dto.login" />
+      <recent name="org.example.dto" />
+      <recent name="org.example.config" />
+      <recent name="org.example.config.handler" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SpringSecurityTest.WHITE_LIST_인_URL_로_토큰_없이_요청한다">
+    <configuration name="SpringSecurityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.SpringSecurityTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringSecurityTest.WHITE_LIST_아닌_URL_로_토큰_없이_요청한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.SpringSecurityTest" />
+      <option name="METHOD_NAME" value="WHITE_LIST_아닌_URL_로_토큰_없이_요청한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringSecurityTest.WHITE_LIST_인_URL_로_토큰_없이_요청한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.SpringSecurityTest" />
+      <option name="METHOD_NAME" value="WHITE_LIST_인_URL_로_토큰_없이_요청한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringSecurityTest.변조된_토큰으로_요청하면_401_반환한다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.SpringSecurityTest" />
+      <option name="METHOD_NAME" value="변조된_토큰으로_요청하면_401_반환한다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringSecurityTest.만료된_토큰인데_refresh_token_이_없다" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="itblog.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.SpringSecurityTest" />
+      <option name="METHOD_NAME" value="만료된_토큰인데_refresh_token_이_없다" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SpringSecurityTest.WHITE_LIST_인_URL_로_토큰_없이_요청한다" />
+        <item itemvalue="JUnit.SpringSecurityTest.WHITE_LIST_아닌_URL_로_토큰_없이_요청한다" />
+        <item itemvalue="JUnit.SpringSecurityTest.변조된_토큰으로_요청하면_401_반환한다" />
+        <item itemvalue="JUnit.SpringSecurityTest" />
+        <item itemvalue="JUnit.SpringSecurityTest.만료된_토큰인데_refresh_token_이_없다" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,11 +193,338 @@
       <option name="project" value="LOCAL" />
       <updated>1699425255971</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="docs: git ignore 변경">
+      <option name="closed" value="true" />
+      <created>1699426635990</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699426635990</updated>
+    </task>
+    <task id="LOCAL-00003" summary="chore: 회원가입 요청 Dto 작성 및 유효성 검사 패턴 추가">
+      <option name="closed" value="true" />
+      <created>1699430959315</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699430959315</updated>
+    </task>
+    <task id="LOCAL-00004" summary="chore: Member 요청을 받는 Rest Controller 구현">
+      <option name="closed" value="true" />
+      <created>1699435826751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435826751</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: email 요청을 받는 Dto 작성">
+      <option name="closed" value="true" />
+      <created>1699435898347</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435898347</updated>
+    </task>
+    <task id="LOCAL-00006" summary="chore: MemberService Interface 및 구현체 작성&#10;&#10;email check login 추가">
+      <option name="closed" value="true" />
+      <created>1699435946440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435946440</updated>
+    </task>
+    <task id="LOCAL-00007" summary="chore: Member Domain 추가&#10;&#10;Member Entity, Repository, 열거 타입의 Role 추가">
+      <option name="closed" value="true" />
+      <created>1699435977959</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699435977959</updated>
+    </task>
+    <task id="LOCAL-00008" summary="chore: spring strater test 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1699449094039</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699449094039</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: memberApiController emailCheck 메서드 작성">
+      <option name="closed" value="true" />
+      <created>1699452757165</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699452757166</updated>
+    </task>
+    <task id="LOCAL-00010" summary="chore: 이메일 요청 Dto 작성">
+      <option name="closed" value="true" />
+      <created>1699452788767</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699452788767</updated>
+    </task>
+    <task id="LOCAL-00011" summary="chore: MemberService 및 구현체 emailExist 내부 변경">
+      <option name="closed" value="true" />
+      <created>1699452827596</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699452827596</updated>
+    </task>
+    <task id="LOCAL-00012" summary="chore: spring-security 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1699514337492</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514337492</updated>
+    </task>
+    <task id="LOCAL-00013" summary="chore: security 인증 안받는 whitelist 클래스 작성">
+      <option name="closed" value="true" />
+      <created>1699514375563</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514375563</updated>
+    </task>
+    <task id="LOCAL-00014" summary="chore: WebSecurityConfig 초안 작성&#10;&#10;JwtFilter 아직 안넣음">
+      <option name="closed" value="true" />
+      <created>1699514409064</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514409064</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore: memberApiController register Method 작성">
+      <option name="closed" value="true" />
+      <created>1699514438455</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514438455</updated>
+    </task>
+    <task id="LOCAL-00016" summary="chore: Member Entity에 빌더패턴 추가">
+      <option name="closed" value="true" />
+      <created>1699514465791</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514465791</updated>
+    </task>
+    <task id="LOCAL-00017" summary="chore: RegisterRequestDto에 toEntity() 메서드 추가">
+      <option name="closed" value="true" />
+      <created>1699514502905</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514502905</updated>
+    </task>
+    <task id="LOCAL-00018" summary="chore: service에 register method 구현">
+      <option name="closed" value="true" />
+      <created>1699514526445</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514526445</updated>
+    </task>
+    <task id="LOCAL-00019" summary="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto">
+      <option name="closed" value="true" />
+      <created>1699514564434</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699514564434</updated>
+    </task>
+    <task id="LOCAL-00020" summary="chore: Jwt 관련 상수 저장">
+      <option name="closed" value="true" />
+      <created>1699517069425</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699517069425</updated>
+    </task>
+    <task id="LOCAL-00021" summary="test: security config에 jwt filter 추가">
+      <option name="closed" value="true" />
+      <created>1699517095121</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1699517095121</updated>
+    </task>
+    <task id="LOCAL-00022" summary="chore: json 및 spring security test 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1699606698783</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606698783</updated>
+    </task>
+    <task id="LOCAL-00023" summary="docs: WhiteList에 login url 추가">
+      <option name="closed" value="true" />
+      <created>1699606735674</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606735674</updated>
+    </task>
+    <task id="LOCAL-00024" summary="chore: 비밀번호 틀림 예외, 이메일 존재안함 예외 추가">
+      <option name="closed" value="true" />
+      <created>1699606808435</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606808435</updated>
+    </task>
+    <task id="LOCAL-00025" summary="chore: jwt filter 구현">
+      <option name="closed" value="true" />
+      <created>1699606848212</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606848212</updated>
+    </task>
+    <task id="LOCAL-00026" summary="chore: Authorization -&gt; Authentication 파일 이름 변경">
+      <option name="closed" value="true" />
+      <created>1699606936483</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606936483</updated>
+    </task>
+    <task id="LOCAL-00027" summary="chore: JWT 인증 실패 핸들러 구현">
+      <option name="closed" value="true" />
+      <created>1699606966021</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606966021</updated>
+    </task>
+    <task id="LOCAL-00028" summary="chore: JWT Token 생성 및 유효성 검사 클래스 구현">
+      <option name="closed" value="true" />
+      <created>1699606993007</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1699606993007</updated>
+    </task>
+    <task id="LOCAL-00029" summary="chore: Redis Configuration 작성">
+      <option name="closed" value="true" />
+      <created>1699607017489</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1699607017489</updated>
+    </task>
+    <task id="LOCAL-00030" summary="chore: Filter Chain에 JWT Filter 및 실패 Handler 추가">
+      <option name="closed" value="true" />
+      <created>1699607062061</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1699607062061</updated>
+    </task>
+    <task id="LOCAL-00031" summary="chore: login mapping">
+      <option name="closed" value="true" />
+      <created>1699607097384</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1699607097385</updated>
+    </task>
+    <task id="LOCAL-00032" summary="chore: Member Entity가 UserDetails를 상속받게 확장">
+      <option name="closed" value="true" />
+      <created>1699607125069</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1699607125069</updated>
+    </task>
+    <task id="LOCAL-00033" summary="chore: 로그인 요청 Dto 작성">
+      <option name="closed" value="true" />
+      <created>1699607149380</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1699607149380</updated>
+    </task>
+    <task id="LOCAL-00034" summary="chore: Access Token, Refresh Token을 저장하는 클래스 TokenInfo 구현">
+      <option name="closed" value="true" />
+      <created>1699607176463</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1699607176463</updated>
+    </task>
+    <task id="LOCAL-00035" summary="chore: login Service Layer 구현">
+      <option name="closed" value="true" />
+      <created>1699608797490</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1699608797490</updated>
+    </task>
+    <task id="LOCAL-00036" summary="chore: Index page Controller 매핑">
+      <option name="closed" value="true" />
+      <created>1699874863803</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1699874863803</updated>
+    </task>
+    <task id="LOCAL-00037" summary="refactor: 회원가입 테스트 끼리 class 묶기">
+      <option name="closed" value="true" />
+      <created>1699874928853</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1699874928853</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="docs: 프로젝트 생성 및 의존성 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: 프로젝트 생성 및 의존성 추가" />
+    <MESSAGE value="chore: memberApiController register Method 작성" />
+    <MESSAGE value="chore: Member Entity에 빌더패턴 추가" />
+    <MESSAGE value="chore: RegisterRequestDto에 toEntity() 메서드 추가" />
+    <MESSAGE value="chore: service에 register method 구현" />
+    <MESSAGE value="chore: memberApiController emailCheck 메서드" />
+    <MESSAGE value="chore: Jwt 관련 상수 저장" />
+    <MESSAGE value="test: security config에 jwt filter 추가" />
+    <MESSAGE value="chore: json 및 spring security test 의존성 추가" />
+    <MESSAGE value="docs: WhiteList에 login url 추가" />
+    <MESSAGE value="chore: 비밀번호 틀림 예외, 이메일 존재안함 예외 추가" />
+    <MESSAGE value="chore: jwt filter 구현" />
+    <MESSAGE value="chore: Authorization -&gt; Authentication 파일 이름 변경" />
+    <MESSAGE value="chore: JWT 인증 실패 핸들러 구현" />
+    <MESSAGE value="chore: JWT Token 생성 및 유효성 검사 클래스 구현" />
+    <MESSAGE value="chore: Redis Configuration 작성" />
+    <MESSAGE value="chore: Filter Chain에 JWT Filter 및 실패 Handler 추가" />
+    <MESSAGE value="chore: login mapping" />
+    <MESSAGE value="chore: Member Entity가 UserDetails를 상속받게 확장" />
+    <MESSAGE value="chore: 로그인 요청 Dto 작성" />
+    <MESSAGE value="chore: Access Token, Refresh Token을 저장하는 클래스 TokenInfo 구현" />
+    <MESSAGE value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
+    <MESSAGE value="chore: login Service Layer 구현" />
+    <MESSAGE value="chore: Index page Controller 매핑" />
+    <MESSAGE value="chore: Member" />
+    <MESSAGE value="refactor: 회원가입 테스트 끼리 class 묶기" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 회원가입 테스트 끼리 class 묶기" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/config/filter/JwtAuthenticationFilter.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
