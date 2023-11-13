@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c565815-7e2e-44c1-99fd-adf5e030d7fc" name="Changes" comment="chore: Member">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/IndexController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/annotation/WithMockCustomUser.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/SpringSecurityTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/org/example/factory/WithMockCustomUserSecurityContextFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/MemberApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/MemberApiControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/service/impl/MemberServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -469,12 +465,26 @@
       <option name="project" value="LOCAL" />
       <updated>1699608797490</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="chore: Index page Controller 매핑">
+      <option name="closed" value="true" />
+      <created>1699874863803</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1699874863803</updated>
+    </task>
+    <task id="LOCAL-00037" summary="refactor: 회원가입 테스트 끼리 class 묶기">
+      <option name="closed" value="true" />
+      <created>1699874928853</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1699874928853</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: security 인증 안받는 whitelist 클래스 작성" />
-    <MESSAGE value="chore: WebSecurityConfig 초안 작성&#10;&#10;JwtFilter 아직 안넣음" />
     <MESSAGE value="chore: memberApiController register Method 작성" />
     <MESSAGE value="chore: Member Entity에 빌더패턴 추가" />
     <MESSAGE value="chore: RegisterRequestDto에 toEntity() 메서드 추가" />
@@ -496,9 +506,11 @@
     <MESSAGE value="chore: 로그인 요청 Dto 작성" />
     <MESSAGE value="chore: Access Token, Refresh Token을 저장하는 클래스 TokenInfo 구현" />
     <MESSAGE value="test: test코드 변수명 변경 emailRequestDto -&gt; duplicatedEmailRequestDto" />
-    <MESSAGE value="chore: Member" />
     <MESSAGE value="chore: login Service Layer 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: login Service Layer 구현" />
+    <MESSAGE value="chore: Index page Controller 매핑" />
+    <MESSAGE value="chore: Member" />
+    <MESSAGE value="refactor: 회원가입 테스트 끼리 class 묶기" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 회원가입 테스트 끼리 class 묶기" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
