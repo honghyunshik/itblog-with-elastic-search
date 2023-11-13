@@ -5,6 +5,8 @@ import org.example.domain.member.MemberRepository;
 import org.example.dto.register.EmailRequestDto;
 import org.example.dto.register.RegisterRequestDto;
 import org.example.service.MemberService;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,28 +30,34 @@ class MemberServiceImplTest {
     @Mock
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Test
-    public void 중복된_이메일이_있는경우_true_반환한다(){
-        EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
-        when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.of(new Member()));
+    @Nested
+    @DisplayName("회원가입 테스트")
+    class RegisterTest{
+        @Test
+        public void 중복된_이메일이_있는경우_true_반환한다(){
+            EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
+            when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.of(new Member()));
 
-        assertTrue(memberService.emailExist(emailRequestDto));
+            assertTrue(memberService.emailExist(emailRequestDto));
+        }
+
+        @Test
+        public void 중복된_이메일이_없는경우_false_반환한다(){
+            EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
+            when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.empty());
+
+            assertFalse(memberService.emailExist(emailRequestDto));
+        }
+
+        @Test
+        public void BCrypt로_비밀번호를_암호화한다(){
+            RegisterRequestDto registerRequestDto = new RegisterRequestDto();
+            registerRequestDto.setPassword("password");
+            when(bCryptPasswordEncoder.encode(registerRequestDto.getPassword())).thenReturn("encrypt");
+            memberService.register(registerRequestDto);
+            assertEquals(registerRequestDto.getPassword(),"encrypt");
+        }
     }
 
-    @Test
-    public void 중복된_이메일이_없는경우_false_반환한다(){
-        EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
-        when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.empty());
 
-        assertFalse(memberService.emailExist(emailRequestDto));
-    }
-
-    @Test
-    public void BCrypt로_비밀번호를_암호화한다(){
-        RegisterRequestDto registerRequestDto = new RegisterRequestDto();
-        registerRequestDto.setPassword("password");
-        when(bCryptPasswordEncoder.encode(registerRequestDto.getPassword())).thenReturn("encrypt");
-        memberService.register(registerRequestDto);
-        assertEquals(registerRequestDto.getPassword(),"encrypt");
-    }
 }
