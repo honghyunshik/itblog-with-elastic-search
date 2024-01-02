@@ -6,7 +6,10 @@ import org.example.domain.login.Login;
 import org.example.domain.login.LoginRepository;
 import org.example.dto.login.LoginSaveRequestDto;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.DateUtils;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Optional;
 
 @Service
@@ -23,9 +26,15 @@ public class MemberLoginServiceimpl {
 
     //만료된 토큰 연장 여부 결정
     @Transactional
-    public boolean isRefreshTokenExpired(String token){
-
+    public Integer isRefreshTokenExpired(String token){
         Optional<Login> login = loginRepository.findByEmailNotExpired(token);
-        return login.isPresent();
+        return login.map(value -> getExpirationWithMilleSeconds(value.getExpiration())).orElse(null);
+    }
+
+    //남은 시간 밀리세컨즈 단위로 변환
+    private Integer getExpirationWithMilleSeconds(LocalDate localDate){
+        Long targetMillis = localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        Long currentMillis = System.currentTimeMillis();
+        return Math.toIntExact(targetMillis - currentMillis);
     }
 }
