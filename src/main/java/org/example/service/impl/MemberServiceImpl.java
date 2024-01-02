@@ -2,6 +2,7 @@ package org.example.service.impl;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.example.common.exception.EmailNotExistingException;
 import org.example.common.exception.PasswordNotMatchingException;
 import org.example.config.JwtTokenProvider;
 import org.example.domain.member.Member;
@@ -67,16 +68,15 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
     @Override
     @Transactional
     public void register(RegisterRequestDto registerRequestDto) {
+        emailExist(registerRequestDto);
         registerRequestDto.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
         memberRepository.save(registerRequestDto.toEntity());
     }
 
     @Override
     @Transactional
-    public boolean emailExist(EmailRequestDto emailRequestDto) {
+    public void emailExist(EmailRequestDto emailRequestDto) {
         Optional<Member> existingUser = memberRepository.findByEmail(emailRequestDto.getEmail());
-
-        //이메일에 중복이 있는지 체크
-        return existingUser.isPresent();
+        if(existingUser.isPresent()) throw new EmailNotExistingException("이메일이 이미 존재합니다");
     }
 }

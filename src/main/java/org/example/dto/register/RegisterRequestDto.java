@@ -11,7 +11,7 @@ import org.example.domain.member.Role;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequestDto {
+public class RegisterRequestDto extends EmailRequestDto{
 
     @NotNull(message = "생일은 필수 입력사항입니다")
     @NotBlank

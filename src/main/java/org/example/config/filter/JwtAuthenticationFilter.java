@@ -1,5 +1,6 @@
 package org.example.config.filter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
@@ -18,18 +19,20 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.Collections;
 
-    @Component
+@Component
     @RequiredArgsConstructor
     public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         private final JwtTokenProvider jwtTokenProvider;
-        private final RedisTemplate<String,Object> redisTemplate;
         private final String[] WHITE_LIST = WhiteList.WHITE_LIST;
+        private final ObjectMapper objectMapper;
+        private final RedisLogoutService redisLogoutService;
+
         @Override
         protected void doFilterInternal(@NonNull HttpServletRequest request,
                                         @NonNull HttpServletResponse response,
@@ -50,9 +53,11 @@ import java.io.IOException;
 
                 try{
                     jwtTokenProvider.isValidateToken(accessToken);
-                    //로그아웃 되어있지 않다면 filter 통과
-                    String logout = (String) redisTemplate.opsForValue().get(accessToken);
-                    if (ObjectUtils.isEmpty(logout)) {
+
+                    //TODO : 로그아웃 되어있지 않다면 filter 통과(Redis)
+
+                    /*
+                    if (redisLogoutService.logoutExist(accessToken)) {
                         Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
                         SecurityContextHolder.getContext().setAuthentication(authentication);
                     }
@@ -61,6 +66,9 @@ import java.io.IOException;
                         unauthorized(response, "로그아웃 되었습니다");
                         return;
                     }
+                     */
+                    Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
                 } catch (ExpiredJwtException e) {
 
                     Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
@@ -86,7 +94,7 @@ import java.io.IOException;
                     unauthorized(response,"토큰의 claim이 비었습니다");
                     return;
                 }catch(Exception e){
-                    unauthorized(response,"유효하지 않은 토큰입니다");
+                    unauthorized(response,e.getMessage());
                     return;
                 }
             }else{
@@ -99,9 +107,8 @@ import java.io.IOException;
         private void unauthorized(HttpServletResponse httpServletResponse, String message) throws IOException {
 
             httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            httpServletResponse.setCharacterEncoding("UTF-8");
-            httpServletResponse.getWriter().write(message);
-            httpServletResponse.getWriter().flush();
+            httpServletResponse.setContentType("application/json; charset=UTF-8");
+            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(Collections.singletonMap("message",message)));
         }
 
         //Request Header 에서 Token 정보를 추출합니다

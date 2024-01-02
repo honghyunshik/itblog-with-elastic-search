@@ -2,14 +2,12 @@ package org.example.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.example.common.constants.JwtConstants;
 import org.example.dto.login.LoginRequestDto;
 import org.example.dto.login.TokenInfo;
 import org.example.dto.register.EmailRequestDto;
 import org.example.dto.register.RegisterRequestDto;
 import org.example.service.MemberService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,8 +54,7 @@ public class MemberApiController {
             return ResponseEntity.badRequest().body(Collections.singletonMap("errors", errors.getAllErrors()));
         }
 
-        if(memberService.emailExist(emailRequestDto)) return ResponseEntity.badRequest()
-                .body(Collections.singletonMap("error","중복된 이메일이 존재합니다"));
+        memberService.emailExist(emailRequestDto);
 
         return ResponseEntity.ok().body(Collections.singletonMap("message","중복된 이메일이 없습니다"));
     }

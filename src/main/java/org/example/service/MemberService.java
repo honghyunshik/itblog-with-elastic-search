@@ -11,6 +11,6 @@ import org.springframework.stereotype.Service;
 public interface MemberService {
 
     public void register(RegisterRequestDto registerRequestDto);
-    public boolean emailExist(EmailRequestDto emailRequestDto);
+    public void emailExist(EmailRequestDto emailRequestDto);
     public TokenInfo login(LoginRequestDto loginRequestDto) throws PasswordNotMatchingException;
 }

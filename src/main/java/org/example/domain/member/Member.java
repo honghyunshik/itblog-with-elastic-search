@@ -9,8 +9,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
-
 
 @Getter
 @NoArgsConstructor
@@ -29,7 +29,7 @@ public class Member implements UserDetails {
     private String gender;
 
     @Column(name = "member_birth")
-    private String birth;
+    private Date birth;
 
     @Column(name = "member_email")
     private String email;
@@ -45,7 +45,7 @@ public class Member implements UserDetails {
     private Role role;
 
     @Builder
-    public Member(String birth, String email, String name, String password,String gender, Role role,
+    public Member(Date birth, String email, String name, String password,String gender, Role role,
                   String phoneNumber){
         this.birth = birth;
         this.email = email;
