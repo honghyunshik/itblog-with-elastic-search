@@ -11,9 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.example.common.constants.JwtConstants;
 import org.example.common.constants.WhiteList;
+import org.example.common.exception.member.JwtAccessTokenExpiredException;
 import org.example.config.JwtTokenProvider;
-import org.example.dto.login.TokenInfo;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -31,7 +30,6 @@ import java.util.Collections;
         private final JwtTokenProvider jwtTokenProvider;
         private final String[] WHITE_LIST = WhiteList.WHITE_LIST;
         private final ObjectMapper objectMapper;
-        private final RedisLogoutService redisLogoutService;
 
         @Override
         protected void doFilterInternal(@NonNull HttpServletRequest request,
@@ -40,9 +38,9 @@ import java.util.Collections;
 
             String accessToken = resolveToken((HttpServletRequest) request);
 
+            //White List는 filter 통과
             AntPathMatcher pathMatcher = new AntPathMatcher();
             for(String whiteList:WHITE_LIST){
-
                 if(pathMatcher.match(whiteList,request.getRequestURI())){
                     filterChain.doFilter(request,response);
                     return;
@@ -56,34 +54,11 @@ import java.util.Collections;
 
                     //TODO : 로그아웃 되어있지 않다면 filter 통과(Redis)
 
-                    /*
-                    if (redisLogoutService.logoutExist(accessToken)) {
-                        Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
-                        SecurityContextHolder.getContext().setAuthentication(authentication);
-                    }
-                    //로그아웃 되어있다면 filter 통과 못함 => 다시 로그인
-                    else {
-                        unauthorized(response, "로그아웃 되었습니다");
-                        return;
-                    }
-                     */
                     Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 } catch (ExpiredJwtException e) {
-
-                    Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
-                    TokenInfo tokenInfo = jwtTokenProvider.refreshAccessToken(authentication);
-
-                    //토큰이 단순히 만료된거라면 새로운 access token 발급
-                    if (tokenInfo != null) {
-                        response.addHeader(JwtConstants.HEADER, tokenInfo.getAccessToken());
-                        SecurityContextHolder.getContext().setAuthentication(authentication);
-                    }
-                    //refresh token도 만료됐다면 filter 통과 못함 => 다시 로그인
-                    else {
-                        unauthorized(response, "로그인한지 너무 오래됐습니다");
-                        return;
-                    }
+                    //Access Token이 만료되었다면 Refresh Token으로 새로운 Access Token 발급받아야 함
+                    throw new JwtAccessTokenExpiredException();
                 }catch (SecurityException | MalformedJwtException e){
                     unauthorized(response,"토큰이 변조되었습니다");
                     return;
@@ -98,7 +73,7 @@ import java.util.Collections;
                     return;
                 }
             }else{
-                unauthorized(response,"토큰이 존재하지 않습니다");
+               unauthorized(response,"토큰이 존재하지 않습니다");
                 return;
             }
             filterChain.doFilter(request,response);
@@ -108,7 +83,7 @@ import java.util.Collections;
 
             httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             httpServletResponse.setContentType("application/json; charset=UTF-8");
-            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(Collections.singletonMap("message",message)));
+            httpServletResponse.getWriter().write(objectMapper.writeValueAsString(Collections.singletonMap("error",message)));
         }
 
         //Request Header 에서 Token 정보를 추출합니다
