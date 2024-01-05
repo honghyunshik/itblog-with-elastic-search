@@ -5,6 +5,10 @@ public class WhiteList {
             "/api/v1/member/**",
             "/login",
             "/css/**",
-            "/"
+            "/",
+            "/js/**",
+            "/favicon.ico",
+            "/swagger-ui/**",
+            "/v3/api-docs/**"
     };
 }
