@@ -6,15 +6,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.example.common.constants.JwtConstants;
 import org.example.common.exception.member.JwtRefreshTokenNotValidException;
 import org.example.config.JwtTokenProvider;
 import org.example.dto.error.ErrorResponseDto;
+import org.example.dto.auth.LoginStatusResponseDto;
 import org.example.dto.success.SuceessResponseDto;
+import org.example.service.impl.MemberServiceImpl;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JwtApiController {
 
     private final JwtTokenProvider jwtTokenProvider;
+    private final MemberServiceImpl memberService;
 
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "토큰 갱신에 성공함", content = @Content(schema = @Schema(implementation = SuceessResponseDto.class))),
@@ -36,16 +39,7 @@ public class JwtApiController {
     @PostMapping("/refresh")
     public ResponseEntity<SuceessResponseDto> refreshAccessToken(HttpServletRequest httpServletRequest){
 
-        String refreshToken = null;
-        Cookie[] cookies = httpServletRequest.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                if ("refreshToken".equals(cookie.getName())) {
-                    refreshToken = cookie.getValue();
-                    break;
-                }
-            }
-        }
+        String refreshToken = memberService.getRefreshTokenCookie(httpServletRequest).getValue();
 
         try{
             jwtTokenProvider.isValidateToken(refreshToken);
@@ -58,4 +52,22 @@ public class JwtApiController {
                 .header(JwtConstants.HEADER,refreshedAccessToken)
                 .body(new SuceessResponseDto("토큰을 갱신했습니다"));
     }
+
+   @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "로그인 상태 성공적으로 반환함", content = @Content(schema = @Schema(implementation = LoginStatusResponseDto.class))),
+            @ApiResponse(responseCode = "500", description = "서버 문제", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))
+    })
+    @Operation(summary = "로그인 상태 확인 API", description = "Access Token을 검증하여 로그인 상태를 확인합니다")
+    @GetMapping("/login-status")
+    public ResponseEntity<LoginStatusResponseDto> login_status(HttpServletRequest httpServletRequest){
+
+        String accessToken = jwtTokenProvider.getAccessTokenWithValid(httpServletRequest);
+
+        if(accessToken==null) return ResponseEntity.ok()
+                    .body(new LoginStatusResponseDto(false,null));
+
+        return ResponseEntity.ok()
+                .body(new LoginStatusResponseDto(true, jwtTokenProvider.getAuthentication(accessToken).getName()));
+    }
+
 }
