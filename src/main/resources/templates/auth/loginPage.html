@@ -3,7 +3,7 @@
 <head>
     <title>블로그 로그인 페이지</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <script src="/js/login.js"></script>
+    <script src="/js/auth/login.js"></script>
 </head>
 <body>
 <div class="login-container">
@@ -17,7 +17,10 @@
             <label for="password">비밀번호:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <button type="submit">로그인</button>
+        <div class="form-group button-group">
+            <button type="submit" class="login-button">로그인</button>
+            <button type="button" class="register-button" onclick="location.href='/itblog/register'">회원가입</button>
+        </div>
     </form>
 </div>
 </body>
