@@ -6,10 +6,14 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.HttpServletRequest;
 import org.example.common.constants.JwtConstants;
 import org.example.common.constants.JwtExpiration;
-import org.example.dto.login.TokenInfo;
-import org.example.service.impl.MemberLoginServiceimpl;
+import org.example.common.exception.member.JwtAccessTokenExpiredException;
+import org.example.domain.member.Member;
+import org.example.dto.auth.TokenInfo;
+import org.example.service.impl.JwtServiceImpl;
+import org.example.service.impl.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,8 +24,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
@@ -30,11 +32,13 @@ import java.util.stream.Collectors;
 @Component
 public class JwtTokenProvider {
     private Key key;
+    private JwtServiceImpl jwtService;
 
-    public JwtTokenProvider(@Value("${jwt.secret}") String secretKey) {
+    public JwtTokenProvider(@Value("${jwt.secret}") String secretKey, JwtServiceImpl jwtService) {
 
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         this.key = Keys.hmacShaKeyFor(keyBytes);
+        this.jwtService = jwtService;
     }
 
     //Access Token이 만료됐지만 refresh Token이 유효할 경우 새로운 access Token 발급
@@ -110,6 +114,7 @@ public class JwtTokenProvider {
     //예외를 상위 메서드로 Throw
     public void isValidateToken(String token) throws Exception{
         Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
+        jwtService.isLogout(token);
     }
 
     public Authentication getAuthentication(String token){
@@ -124,5 +129,27 @@ public class JwtTokenProvider {
         UserDetails principal = new User(claims.getSubject(),"",authorities);
 
         return new UsernamePasswordAuthenticationToken(principal,"",authorities);
+    }
+
+    //Request Header 에서 Token 정보를 추출합니다
+    public String resolveToken(HttpServletRequest httpServletRequest){
+        String authHeader = httpServletRequest.getHeader(JwtConstants.HEADER);
+        if(authHeader!=null && authHeader.startsWith(JwtConstants.TYPE)) {
+            //Bearer을 제외한 Token 값을 추출합니다
+            return authHeader.substring(7);
+        }
+        return null;
+    }
+
+    public String getAccessTokenWithValid(HttpServletRequest httpServletRequest){
+        String accessToken = resolveToken(httpServletRequest);
+        try{
+            isValidateToken(accessToken);
+        }catch(ExpiredJwtException e){
+            throw new JwtAccessTokenExpiredException();
+        }catch (Exception e){
+            return null;
+        }
+        return accessToken;
     }
 }
