@@ -1,5 +1,6 @@
 package org.example.service.impl;
 
+import org.example.common.exception.EmailNotExistingException;
 import org.example.domain.member.Member;
 import org.example.domain.member.MemberRepository;
 import org.example.dto.register.EmailRequestDto;
@@ -34,19 +35,19 @@ class MemberServiceImplTest {
     @DisplayName("회원가입 테스트")
     class RegisterTest{
         @Test
-        public void 중복된_이메일이_있는경우_true_반환한다(){
+        public void 중복된_이메일이_있는경우_예외를_던진다(){
             EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
             when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.of(new Member()));
 
-            assertTrue(memberService.emailExist(emailRequestDto));
+            assertThrows(EmailNotExistingException.class,()->memberService.emailExist(emailRequestDto));
         }
 
         @Test
-        public void 중복된_이메일이_없는경우_false_반환한다(){
+        public void 중복된_이메일이_없는경우_예외를_던지지_않는다(){
             EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
             when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.empty());
 
-            assertFalse(memberService.emailExist(emailRequestDto));
+            assertDoesNotThrow(()->memberService.emailExist(emailRequestDto));
         }
 
         @Test

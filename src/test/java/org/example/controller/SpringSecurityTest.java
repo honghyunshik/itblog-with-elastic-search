@@ -55,6 +55,7 @@ public class SpringSecurityTest {
     @MockBean
     private JwtTokenProvider jwtTokenProvider;
 
+
     @BeforeAll
     public void init() throws Exception {
 
@@ -82,6 +83,11 @@ public class SpringSecurityTest {
     @Test
     public void 유효한_토큰이_로그아웃_기록이_없으면_200_반환한다() throws Exception {
         doNothing().when(jwtTokenProvider).isValidateToken("token");
+        RedisConnectionFactory redisConnectionFactory = mock(RedisConnectionFactory.class);
+        RedisTemplate<String,Object> redisTemplate = mock(RedisTemplate.class);
+        ValueOperations<String,Object> valueOperations = mock(ValueOperations.class);
+        when(redisTemplate.opsForValue()).thenReturn(valueOperations);
+        when(valueOperations.get("token")).thenReturn(null);
 
         mockMvc.perform(get("/index")
                 .header("Authorization","Bearer token"))

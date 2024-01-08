@@ -8,9 +8,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
-
 
 @Getter
 @NoArgsConstructor
@@ -29,13 +30,10 @@ public class Member implements UserDetails {
     private String gender;
 
     @Column(name = "member_birth")
-    private String birth;
+    private LocalDate birth;
 
     @Column(name = "member_email")
     private String email;
-
-    @Column(name = "member_phone_number")
-    private String phoneNumber;
 
     @Column(name = "member_password")
     private String password;
@@ -45,15 +43,13 @@ public class Member implements UserDetails {
     private Role role;
 
     @Builder
-    public Member(String birth, String email, String name, String password,String gender, Role role,
-                  String phoneNumber){
+    public Member(LocalDate birth, String email, String name, String password,String gender, Role role){
         this.birth = birth;
         this.email = email;
         this.name = name;
         this.password = password;
         this.gender = gender;
         this.role = role;
-        this.phoneNumber = phoneNumber;
     }
 
     @Override
