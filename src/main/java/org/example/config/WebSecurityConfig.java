@@ -40,10 +40,7 @@ public class WebSecurityConfig {
                 .exceptionHandling(handler->handler.authenticationEntryPoint(customAuthenticationEntryPoint));;
         return http.build();
     }
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+
     @Bean
     public Random random(){return new Random();}
 }
