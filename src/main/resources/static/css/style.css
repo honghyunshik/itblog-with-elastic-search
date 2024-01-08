@@ -49,6 +49,26 @@ button {
     font-size: 16px;
 }
 
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-button{
+    background-color: pink;
+}
+
+.button-group button {
+    flex-basis: 48%; /* 버튼이 각각 가로 폭의 약 절반을 차지하도록 설정 */
+}
+
 button:hover {
     background-color: #4cae4c;
+}
+
+.logout-button {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }
