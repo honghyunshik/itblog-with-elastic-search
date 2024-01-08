@@ -7,8 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.Collections;
-
 @RestControllerAdvice
 public class MemberExceptionHandler {
 
@@ -20,7 +18,7 @@ public class MemberExceptionHandler {
     }
 
     @ExceptionHandler(JwtAccessTokenExpiredException.class)
-    public ResponseEntity<ErrorResponseDto> jwtAccessTokenExpiredExceptionHandler(){
+    public ResponseEntity<?> jwtAccessTokenExpiredExceptionHandler(){
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
                 .body(new ErrorResponseDto("AccessToken이 만료되었습니다"));
@@ -38,6 +36,13 @@ public class MemberExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
                 .body(new ErrorResponseDto("유효하지 않은 Refresh Token입니다"));
+    }
+
+    @ExceptionHandler(JwtAccessTokenAlreadyLogoutException.class)
+    public ResponseEntity<ErrorResponseDto> JwtAccessTokenAlreadyLogoutExceptionHandler(){
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(new ErrorResponseDto("로그아웃 된 토큰입니다"));
     }
 
     @ExceptionHandler(EmailAlreadyExistingException.class)
