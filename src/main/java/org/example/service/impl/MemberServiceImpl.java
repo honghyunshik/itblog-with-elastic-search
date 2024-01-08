@@ -1,19 +1,21 @@
 package org.example.service.impl;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.example.common.exception.EmailNotExistingException;
-import org.example.common.exception.PasswordNotMatchingException;
+import org.example.common.exception.member.EmailAlreadyExistingException;
+import org.example.common.exception.member.JwtAccessTokenAlreadyLogoutException;
+import org.example.common.exception.member.PasswordNotMatchingException;
 import org.example.config.JwtTokenProvider;
+import org.example.domain.logout.Logout;
+import org.example.domain.logout.LogoutRepository;
 import org.example.domain.member.Member;
 import org.example.domain.member.MemberRepository;
-import org.example.dto.login.LoginRequestDto;
-import org.example.dto.login.TokenInfo;
-import org.example.dto.register.EmailRequestDto;
+import org.example.dto.auth.LoginRequestDto;
+import org.example.dto.auth.LogoutRequestDto;
+import org.example.dto.auth.TokenInfo;
 import org.example.dto.register.RegisterRequestDto;
-import org.example.service.MemberService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -24,20 +26,21 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.HashMap;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.Random;
 
 @RequiredArgsConstructor
 @Service
-public class MemberServiceImpl implements MemberService, UserDetailsService {
+public class MemberServiceImpl implements UserDetailsService {
 
     private final MemberRepository memberRepository;
+    private final LogoutRepository logoutRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
-
-    @Override
+    private final Random random;
     public TokenInfo login(LoginRequestDto loginRequestDto) throws PasswordNotMatchingException {
 
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
@@ -46,7 +49,7 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
         try{
             authentication = authenticationManagerBuilder.getObject().authenticate(usernamePasswordAuthenticationToken);
         }catch(Exception e){
-            throw new PasswordNotMatchingException("비밀번호가 틀렸습니다");
+            throw new PasswordNotMatchingException();
         }
         //login 시 토큰 발급 -> 로그인 기준으로 access Token : 30분   refresh Token : 1주
         return jwtTokenProvider.generateToken(authentication);
@@ -65,18 +68,50 @@ public class MemberServiceImpl implements MemberService, UserDetailsService {
                 }).orElseThrow(()->new UsernameNotFoundException("해당 이메일의 유저를 찾을 수 없습니다"));
     }
 
-    @Override
+    //로그아웃 시 Logout Table에 Access Token 저장
+    @Transactional
+    public void logout(HttpServletRequest httpServletRequest){
+
+        String accessToken = jwtTokenProvider.getAccessTokenWithValid(httpServletRequest);
+        logoutRepository.save(LogoutRequestDto.builder()
+                        .token(accessToken)
+                        .expiration(LocalDateTime.now().plus(Duration.ofMinutes(30)))
+                        .build().toEntity());
+    }
+
     @Transactional
     public void register(RegisterRequestDto registerRequestDto) {
-        emailExist(registerRequestDto);
+        if(emailExist(registerRequestDto.getEmail())) throw new EmailAlreadyExistingException("이메일이 이미 존재합니다");
         registerRequestDto.setPassword(bCryptPasswordEncoder.encode(registerRequestDto.getPassword()));
         memberRepository.save(registerRequestDto.toEntity());
     }
 
-    @Override
+
+
     @Transactional
-    public void emailExist(EmailRequestDto emailRequestDto) {
-        Optional<Member> existingUser = memberRepository.findByEmail(emailRequestDto.getEmail());
-        if(existingUser.isPresent()) throw new EmailNotExistingException("이메일이 이미 존재합니다");
+    public boolean emailExist(String email) {
+        Optional<Member> existingUser = memberRepository.findByEmail(email);
+        return existingUser.isPresent();
     }
+
+    public Cookie getRefreshTokenCookie(HttpServletRequest httpServletRequest){
+        Cookie[] cookies = httpServletRequest.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("refreshToken".equals(cookie.getName())) {
+                    return cookie;
+                }
+            }
+        }
+        return null;
+    }
+
+    public int createRandomCodeForEmailAuthentication(){
+        return random.nextInt(900000) + 100000;
+    }
+
+    public void sendEmailWithCode(int code){
+        //TODO : 이메일 전송 로직
+    }
+
 }
