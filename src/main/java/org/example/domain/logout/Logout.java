@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @Entity
@@ -16,5 +17,5 @@ public class Logout {
 
     @Id
     private String token;
-    private LocalDate expiration;
+    private LocalDateTime expiration;
 }
