@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (accessToken) {
                     sessionStorage.setItem('accessToken', accessToken); // Bearer 제거
                     // 로그인 성공 처리: fetch 요청으로 /index 페이지 로드
-                    return fetch('/index', {
+                    return fetch('/itblog/index', {
                         headers: {
                             'Authorization': 'Bearer ' + accessToken
                         }
@@ -37,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }).then(html => {
             document.documentElement.innerHTML = html; // 현재 문서 내용을 /index 페이지로 교체
-              history.pushState(null, '', '/index'); // URL 변경
+              history.pushState(null, '', '/itblog/index'); // URL 변경
+              location.reload();
         }).catch(error => {
             console.error('Error:', error);
         });
