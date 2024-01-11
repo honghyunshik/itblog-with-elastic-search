@@ -1,0 +1,95 @@
+#left-menu {
+    width: 20%; /* 필요에 따라 너비 조정 */
+    background-color: #f0f0f0; /* 배경색 */
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100vh; /* 전체 높이 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 위, 아래 요소 간격 조정 */
+}
+
+#left-menu .menu-top,
+#left-menu .menu-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#left-menu .menu-middle {
+    text-align: center;
+    margin-top: -200px;
+}
+
+#left-menu h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#left-menu p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+#left-menu .menu-bottom i {
+    display: block;
+    margin: 10px auto; /* 중앙 정렬 */
+    cursor: pointer;
+}
+
+#left-menu .menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* 아이콘 간격 조정 */
+}
+
+#left-menu .tooltip {
+    visibility: hidden;
+    width: auto;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+}
+
+#left-menu .menu-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+#left-menu .menu-top .menu-item .tooltip {
+    bottom: auto; /* 기존 bottom: 100% 제거 */
+    top: 100%; /* 위쪽 아이콘의 툴팁을 아래로 이동 */
+}
+
+#left-menu .menu-bottom .menu-item .tooltip {
+    bottom: 100%; /* 아래쪽 아이콘의 툴팁을 위로 이동 */
+    top: auto; /* 기존 top: 100% 제거 */
+}
+
+#search-box {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    top: 100%;
+    right: 100%; /* 아이콘의 왼쪽에 위치 */
+    border: none; /* 바깥쪽 테두리 제거 */
+    border-radius: 10px; /* 둥근 테두리 */
+    background-color: white; /* 배경색 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+}
+
+#search-box input{
+    border: none;
+    padding: 10px;
+    margin: 0;
+}

@@ -1,4 +1,4 @@
-body {
+.login-page {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 
-.login-container {
+.login-page .login-container {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -17,20 +17,20 @@ body {
     width: 300px;
 }
 
-.login-container h2 {
+.login-page .login-container h2 {
     text-align: center;
 }
 
-.form-group {
+.login-page .form-group {
     margin-bottom: 15px;
 }
 
-.form-group label {
+.login-page .form-group label {
     display: block;
     margin-bottom: 5px;
 }
 
-.form-group input {
+.login-page .form-group input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -38,7 +38,7 @@ body {
     box-sizing: border-box;
 }
 
-button {
+.login-page button {
     width: 100%;
     padding: 10px;
     background-color: #5cb85c;
@@ -49,26 +49,16 @@ button {
     font-size: 16px;
 }
 
-.button-group {
+.login-page .button-group {
     display: flex;
     justify-content: space-between;
 }
 
-.register-button{
-    background-color: pink;
+.login-page .button-group button {
+    flex-grow: 1;
+    margin: 0 5px;
 }
 
-.button-group button {
-    flex-basis: 48%; /* 버튼이 각각 가로 폭의 약 절반을 차지하도록 설정 */
-}
-
-button:hover {
+.login-page button:hover {
     background-color: #4cae4c;
-}
-
-.logout-button {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
 }

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="/js/auth/login-button.js"></script>
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/left.css">
+    <script src="https://kit.fontawesome.com/7e0c444038.js" crossorigin="anonymous"></script>
+    <script src="/js/auth/jwt.js"></script>
+    <script src="/js/common/header.js"></script>
+    <script src="/js/common/leftMenu.js"></script>
 </head>
 <body>
-<span id="user-email"></span>
-<button class="auth-button">로그인</button>
-<button class="post-write-button">게시글 작성</button>
+<div th:replace="common/leftMenu :: header"></div>
+
 </body>
 </html>
