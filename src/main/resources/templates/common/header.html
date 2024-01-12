@@ -2,26 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Common Header</title>
-
 </head>
 <body>
 <div th:fragment="header">
     <div class="header-container">
-        <i class="fa-solid fa-house-chimney" onclick="location.href='/itblog/index'"></i>
-        <div class="center-section">
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="검색...">
-                <button class="search-button">검색</button>
-            </div>
+        <!-- 홈 아이콘 -->
+        <div class="menu-item">
+            <i class="fa-solid fa-house-chimney" onclick="location.href='/itblog/index'"></i>
+            <span class="tooltip">홈</span>
         </div>
+
+        <!-- 오른쪽 섹션 -->
         <div class="right-section">
+            <!-- 사용자 이메일 -->
             <div id="user-email"></div>
+
+            <!-- 헤더 버튼들 -->
             <div class="header-buttons">
-                <button class="logout-button" style="display: none;">로그아웃</button>
-                <button class="login-button" onclick="location.href='/itblog/login'">로그인</button>
-                <button class="profile-button" style="display: none;">프로필</button>
-                <button class="my-posts-button" style="display: none;">내 글</button>
-                <button class="my-comments-button" style="display: none;">내 댓글</button>
+                <!-- 로그인 아이콘과 툴팁 -->
+                <div class="menu-item">
+                    <i class="fa-solid fa-right-to-bracket" onclick="location.href='/itblog/login'"></i>
+                    <span class="tooltip">로그인</span>
+                </div>
+
+                <!-- 로그아웃 아이콘 (초기에 숨김) -->
+                <div class="menu-item">
+                    <i class="fa-solid fa-xmark logout-icon" style="display: none;" id="logout-button"></i>
+                    <span class="tooltip">로그아웃</span>
+                </div>
             </div>
         </div>
     </div>

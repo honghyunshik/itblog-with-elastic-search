@@ -3,15 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-    <link rel="stylesheet" type="text/css" href="/css/header.css">
-    <link rel="stylesheet" type="text/css" href="/css/left.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <script src="https://kit.fontawesome.com/7e0c444038.js" crossorigin="anonymous"></script>
     <script src="/js/auth/jwt.js"></script>
     <script src="/js/common/header.js"></script>
     <script src="/js/common/leftMenu.js"></script>
 </head>
 <body>
-<div th:replace="common/leftMenu :: header"></div>
 
+<div class="main-container">
+    <div th:replace="~{common/leftMenu :: header}"></div>
+
+    <div class="content-container">
+        <div th:replace="~{common/header :: header}"></div>
+
+        <div class="blog-content">
+            <div class="latest-posts">
+                <h2>내 블로그 최신 글</h2>
+                <!-- 내 블로그 최신 글 내용 -->
+            </div>
+
+            <div class="right-content">
+                <div class="latest-comments">
+                    <h2>내 블로그 최신 댓글</h2>
+                    <!-- 내 블로그 최신 댓글 내용 -->
+                </div>
+
+                <div class="latest-guestbook">
+                    <h2>내 방명록 최신 글</h2>
+                    <!-- 내 방명록 최신 글 내용 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
