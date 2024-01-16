@@ -1,5 +1,6 @@
 package org.example.service.impl;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example.common.exception.member.JwtAccessTokenAlreadyLogoutException;
@@ -22,4 +23,5 @@ public class JwtServiceImpl {
             throw new JwtAccessTokenAlreadyLogoutException();
         }
     }
+
 }

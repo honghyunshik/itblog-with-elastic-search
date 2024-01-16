@@ -56,7 +56,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             } catch (ExpiredJwtException e) {
                 //Access Token이 만료되었다면 Refresh Token으로 새로운 Access Token 발급받아야 함
-                throw new JwtAccessTokenExpiredException();
+                unauthorized(response, "토큰이 만료되었습니다");
+                return;
             }catch (SecurityException | MalformedJwtException e){
                 unauthorized(response,"토큰이 변조되었습니다");
                 return;
@@ -68,10 +69,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 return;
             }catch(Exception e){
                 unauthorized(response,e.getMessage());
+
                 return;
             }
         }else{
-           unauthorized(response,"토큰이 존재하지 않습니다");
+            unauthorized(response,"토큰이 존재하지 않습니다");
             return;
         }
         filterChain.doFilter(request,response);

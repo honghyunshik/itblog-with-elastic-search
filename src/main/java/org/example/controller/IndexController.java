@@ -8,9 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/itblog")
 public class IndexController {
 
-    @GetMapping("/index")
+    @GetMapping("/main")
     public String index(){
-        return "index.html";
+        return "main.html";
     }
+
+    @GetMapping("/fragment/myBlog")
+    public String myBlog(){return "main/myBlog.html";}
+
+    @GetMapping("/fragment/allPost")
+    public String allPost(){return "main/allPost.html";}
 
 }

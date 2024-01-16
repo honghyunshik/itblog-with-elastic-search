@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateHeaderButtons(loginData);
     });
 
-    var logoutButton = document.querySelector('.logout-button');
+    var logoutButton = document.getElementById('logout-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', handleLogoutClick);
     }
@@ -11,40 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function updateHeaderButtons(loginData) {
-    var loginButton = document.querySelector('.login-button');
-    var logoutButton = document.querySelector('.logout-button');
-    var profileButton = document.querySelector('.profile-button');
-    var myPostsButton = document.querySelector('.my-posts-button');
-    var myCommentsButton = document.querySelector('.my-comments-button');
+    var loginButton = document.querySelector('.fa-right-to-bracket'); // 로그인 버튼 선택자 수정
+    var logoutButton = document.querySelector('.fa-xmark'); // 로그아웃 버튼 선택자 수정
+    var userEmailElement = document.getElementById('user-email');
 
     if (loginData.status) {
         // 로그인 상태일 경우
         if (loginButton) loginButton.style.display = 'none';
         if (logoutButton) logoutButton.style.display = 'block';
-        if (profileButton) profileButton.style.display = 'block';
-        if (myPostsButton) myPostsButton.style.display = 'block';
-        if (myCommentsButton) myCommentsButton.style.display = 'block';
-
-        // 사용자 이메일을 업데이트
-        var userEmailElement = document.getElementById('user-email');
-        if (userEmailElement) {
-            userEmailElement.textContent = loginData.email;
-        }
+        if (userEmailElement) userEmailElement.textContent = loginData.email; // 사용자 이메일 업데이트
     } else {
         // 로그아웃 상태일 경우
         if (loginButton) loginButton.style.display = 'block';
         if (logoutButton) logoutButton.style.display = 'none';
-        if (profileButton) profileButton.style.display = 'none';
-        if (myPostsButton) myPostsButton.style.display = 'none';
-        if (myCommentsButton) myCommentsButton.style.display = 'none';
-
-        // 사용자 이메일을 숨김
-        var userEmailElement = document.getElementById('user-email');
-        if (userEmailElement) {
-            userEmailElement.textContent = '';
-        }
+        if (userEmailElement) userEmailElement.textContent = ''; // 사용자 이메일 숨김
     }
 }
+
 
 // 로그아웃 버튼 클릭 이벤트 핸들러
 function handleLogoutClick() {
@@ -65,7 +48,7 @@ function handleLogoutClick() {
                     alert('로그아웃 되었습니다');
                     // 추가로 필요한 로직을 여기에 작성하세요.
                     sessionStorage.removeItem('accessToken');
-                    window.location.href = '/itblog/index';
+                    window.location.href = '/itblog/main';
                 } else {
                     // 로그아웃 실패 시 처리
                     console.error('로그아웃 실패');

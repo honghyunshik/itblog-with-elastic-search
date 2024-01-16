@@ -86,12 +86,18 @@ public class MemberServiceImpl implements UserDetailsService {
         memberRepository.save(registerRequestDto.toEntity());
     }
 
-
-
     @Transactional
     public boolean emailExist(String email) {
         Optional<Member> existingUser = memberRepository.findByEmail(email);
         return existingUser.isPresent();
+    }
+
+    @Transactional
+    public Optional<Member> getLoginUser(HttpServletRequest httpServletRequest){
+
+        String accessToken = jwtTokenProvider.getAccessTokenWithValid(httpServletRequest);
+        Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
+        return memberRepository.findByEmail(authentication.getName());
     }
 
     public Cookie getRefreshTokenCookie(HttpServletRequest httpServletRequest){

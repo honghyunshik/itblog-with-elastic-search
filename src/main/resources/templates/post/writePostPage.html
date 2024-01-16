@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>블로그 작성 페이지</title>
+    <link rel="stylesheet" href="/css/write-post.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <script src="https://kit.fontawesome.com/7e0c444038.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@12.0.4/dist/markdown-it.min.js"></script>
+    <script src="/js/post/writePost.js"></script>
+</head>
+<body>
+<div class="blog-container">
+    <div th:replace="~{common/header :: header}"></div>
+    <input type="text" id="title" placeholder="제목을 입력하세요" class="blog-title">
+    <textarea id="markdown-content" placeholder="내용을 작성하세요"></textarea>
+    <div id="preview-content" style="display: none;"></div>
+    <div class="button-group">
+        <button id="preview-button">프리뷰</button>
+        <button id="submit-button">작성</button>
+    </div>
+</div>
+
+</body>
+</html>

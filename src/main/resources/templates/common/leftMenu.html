@@ -1,48 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>left-menu</title>
 </head>
 <body>
-<div th:fragment="header">
-    <div id="left-menu">
-        <div class="menu-top">
-            <div class="menu-item">
-                <i class="fa-solid fa-bars"></i>
-                <span class="tooltip">메뉴</span>
+<div th:fragment="header" id="left-menu">
+    <div class="menu-top">
+        <div class="menu-item">
+            <i class="fa-solid fa-bars"></i>
+            <span class="tooltip">메뉴</span>
+        </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+            <span class="tooltip">블로그에서 검색</span>
+            <div id="search-box" class="search-box">
+                <input type="text" placeholder="Search" id="search-box-input"/>
             </div>
-            <div class="menu-item">
-                <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
-                <span class="tooltip">블로그에서 검색</span>
-                <div id="search-box" class="search-box">
-                    <input type="text" placeholder="Search" id="search-box-input"/>
-                </div>
-            </div>
+        </div>
 
+    </div>
+    <div class="menu-middle">
+        <h2>블로그 이름</h2>
+        <p>블로그 설명.</p>
+    </div>
+    <div class="menu-bottom">
+        <div class="menu-item">
+            <i class="fa-solid fa-pen"></i>
+            <span class="tooltip">글쓰기</span>
+            <button id="write-button" style="display: none;">글쓰기</button>
         </div>
-        <div class="menu-middle">
-            <h2>블로그 이름</h2>
-            <p>블로그 설명.</p>
+        <div class="menu-item">
+            <i class="fa-solid fa-book"></i>
+            <span class="tooltip">방명록 작성</span>
         </div>
-        <div class="menu-bottom">
-            <div class="menu-item">
-                <i class="fa-solid fa-pen"></i>
-                <span class="tooltip">글쓰기</span>
-                <button id="write-button" style="display: none;">글쓰기</button>
-            </div>
-            <div class="menu-item">
-                <i class="fa-solid fa-book"></i>
-                <span class="tooltip">방명록 작성</span>
-            </div>
-            <div class="menu-item">
-                <i class="fa-solid fa-star"></i>
-                <span class="tooltip">구독하기</span>
-            </div>
+        <div class="menu-item">
+            <i class="fa-solid fa-star"></i>
+            <span class="tooltip">구독하기</span>
         </div>
     </div>
-
 </div>
+
 </body>
 </html>
