@@ -64,7 +64,7 @@ public class MemberAuthApiController {
             @ApiResponse(responseCode = "500", description = "서버 문제", content = @Content(schema = @Schema(implementation = ErrorResponseDto.class)))
     })
     @Operation(summary = "로그아웃 API", description = "로그아웃합니다")
-    @PostMapping("/logout")
+    @GetMapping("/logout")
     public ResponseEntity<SuceessResponseDto> logout(HttpServletRequest httpServletRequest){
 
         memberService.logout(httpServletRequest);
