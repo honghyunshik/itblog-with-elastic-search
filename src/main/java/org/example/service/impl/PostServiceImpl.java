@@ -32,11 +32,10 @@ public class PostServiceImpl {
         post.setMember(member);
         postRepostiory.save(post);
 
-        /*
+
         PostDetail postDetail = postpostRequestDto.toPostDetailEntity();
         postDetail.setPost(post);
         postDetailRepository.save(postDetail);
 
-         */
     }
 }
