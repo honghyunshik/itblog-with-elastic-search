@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import java.util.Random;
+
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
@@ -38,8 +40,7 @@ public class WebSecurityConfig {
                 .exceptionHandling(handler->handler.authenticationEntryPoint(customAuthenticationEntryPoint));;
         return http.build();
     }
+
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
+    public Random random(){return new Random();}
 }

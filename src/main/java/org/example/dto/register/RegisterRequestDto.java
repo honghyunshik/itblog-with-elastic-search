@@ -6,6 +6,10 @@ import jakarta.validation.constraints.Pattern;
 import lombok.*;
 import org.example.domain.member.Member;
 import org.example.domain.member.Role;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,9 +18,8 @@ import org.example.domain.member.Role;
 public class RegisterRequestDto {
 
     @NotNull(message = "생일은 필수 입력사항입니다")
-    @NotBlank
-    @Pattern(regexp = "(19|20)\\d{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])")
-    private String birth;
+    @DateTimeFormat
+    private LocalDate birth;
 
     @NotNull(message = "이메일은 필수 입력사항입니다")
     @NotBlank
@@ -36,10 +39,6 @@ public class RegisterRequestDto {
     @NotNull(message = "성별은 필수 입력사항입니다")
     private String gender;
 
-    @NotBlank
-    @NotNull
-    @Pattern(regexp = "^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", message = "전화번호 양식을 확인해주세요")
-    private String phoneNumber;
 
     public Member toEntity(){
         return Member.builder()
@@ -49,7 +48,6 @@ public class RegisterRequestDto {
                 .gender(this.gender)
                 .password(this.password)
                 .role(Role.USER)
-                .phoneNumber(this.phoneNumber)
                 .build();
     }
 }
