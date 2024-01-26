@@ -10,10 +10,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.example.common.constants.JwtConstants;
 import org.example.common.constants.JwtExpiration;
 import org.example.common.exception.member.JwtAccessTokenExpiredException;
-import org.example.domain.member.Member;
+import org.example.common.exception.member.JwtTokenNotValidException;
 import org.example.dto.auth.TokenInfo;
 import org.example.service.impl.JwtServiceImpl;
-import org.example.service.impl.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -133,7 +132,8 @@ public class JwtTokenProvider {
 
     //Request Header 에서 Token 정보를 추출합니다
     public String resolveToken(HttpServletRequest httpServletRequest){
-        String authHeader = httpServletRequest.getHeader(JwtConstants.HEADER);
+        String authHeader = httpServletRequest.getHeader(JwtConstants.HEADER)==null?
+                httpServletRequest.getHeader("authorization"):httpServletRequest.getHeader(JwtConstants.HEADER);
         if(authHeader!=null && authHeader.startsWith(JwtConstants.TYPE)) {
             //Bearer을 제외한 Token 값을 추출합니다
             return authHeader.substring(7);
@@ -146,7 +146,17 @@ public class JwtTokenProvider {
         try{
             isValidateToken(accessToken);
         }catch(ExpiredJwtException e){
-            throw new JwtAccessTokenExpiredException();
+           throw new JwtAccessTokenExpiredException();
+        }catch (Exception e){
+            throw new JwtTokenNotValidException();
+        }
+        return accessToken;
+    }
+
+    public String getAccessTokenOrNull(HttpServletRequest httpServletRequest){
+        String accessToken = resolveToken(httpServletRequest);
+        try{
+            isValidateToken(accessToken);
         }catch (Exception e){
             return null;
         }
