@@ -9,11 +9,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.example.common.constants.JwtConstants;
 import org.example.common.constants.WhiteList;
-import org.example.common.exception.member.JwtAccessTokenExpiredException;
 import org.example.config.JwtTokenProvider;
-import org.example.service.impl.MemberServiceImpl;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,7 +35,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     @NonNull FilterChain filterChain) throws ServletException, IOException {
 
         String accessToken = jwtTokenProvider.resolveToken((HttpServletRequest) request);
-
         //White List는 filter 통과
         AntPathMatcher pathMatcher = new AntPathMatcher();
         for(String whiteList:WHITE_LIST){
