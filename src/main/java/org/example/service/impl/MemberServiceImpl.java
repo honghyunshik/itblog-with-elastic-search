@@ -41,7 +41,7 @@ public class MemberServiceImpl implements UserDetailsService {
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
     private final Random random;
-    public TokenInfo login(LoginRequestDto loginRequestDto) throws PasswordNotMatchingException {
+    public TokenInfo login(LoginRequestDto loginRequestDto)  {
 
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
                 new UsernamePasswordAuthenticationToken(loginRequestDto.getEmail(),loginRequestDto.getPassword());
@@ -72,11 +72,13 @@ public class MemberServiceImpl implements UserDetailsService {
     @Transactional
     public void logout(HttpServletRequest httpServletRequest){
 
-        String accessToken = jwtTokenProvider.getAccessTokenWithValid(httpServletRequest);
-        logoutRepository.save(LogoutRequestDto.builder()
-                        .token(accessToken)
-                        .expiration(LocalDateTime.now().plus(Duration.ofMinutes(30)))
-                        .build().toEntity());
+        String accessToken = jwtTokenProvider.getAccessTokenOrNull(httpServletRequest);
+        if(accessToken!=null){
+            logoutRepository.save(LogoutRequestDto.builder()
+                    .token(accessToken)
+                    .expiration(LocalDateTime.now().plus(Duration.ofMinutes(30)))
+                    .build().toEntity());
+        }
     }
 
     @Transactional
@@ -86,12 +88,18 @@ public class MemberServiceImpl implements UserDetailsService {
         memberRepository.save(registerRequestDto.toEntity());
     }
 
-
-
     @Transactional
     public boolean emailExist(String email) {
         Optional<Member> existingUser = memberRepository.findByEmail(email);
         return existingUser.isPresent();
+    }
+
+    @Transactional
+    public Optional<Member> getLoginUser(HttpServletRequest httpServletRequest){
+
+        String accessToken = jwtTokenProvider.getAccessTokenWithValid(httpServletRequest);
+        Authentication authentication = jwtTokenProvider.getAuthentication(accessToken);
+        return memberRepository.findByEmail(authentication.getName());
     }
 
     public Cookie getRefreshTokenCookie(HttpServletRequest httpServletRequest){

@@ -1,11 +1,9 @@
 package org.example.service.impl;
 
-import org.example.common.exception.EmailNotExistingException;
+import org.example.common.exception.member.EmailAlreadyExistingException;
 import org.example.domain.member.Member;
 import org.example.domain.member.MemberRepository;
-import org.example.dto.register.EmailRequestDto;
 import org.example.dto.register.RegisterRequestDto;
-import org.example.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,7 +11,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Optional;
@@ -39,7 +36,7 @@ class MemberServiceImplTest {
             EmailRequestDto emailRequestDto = new EmailRequestDto("admin@naver.com");
             when(memberRepository.findByEmail(emailRequestDto.getEmail())).thenReturn(Optional.of(new Member()));
 
-            assertThrows(EmailNotExistingException.class,()->memberService.emailExist(emailRequestDto));
+            assertThrows(EmailAlreadyExistingException.class,()->memberService.emailExist(emailRequestDto));
         }
 
         @Test

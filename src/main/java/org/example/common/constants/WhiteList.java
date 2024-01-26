@@ -6,11 +6,10 @@ public class WhiteList {
             "/css/**",
             "/",
             "/js/**",
+            "/images/**",
             "/favicon.ico",
             "/swagger-ui/**",
             "/v3/api-docs/**",
-            "/itblog/login",
-            "/itblog/register",
-            "/itblog/index"
+            "/itblog/**"
     };
 }

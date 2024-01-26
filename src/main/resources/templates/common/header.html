@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Common Header</title>
+</head>
+<body>
+<div th:fragment="header" class="header-container">
+    <!-- 홈 아이콘 -->
+    <div class="menu-item">
+        <i class="fa-solid fa-house-chimney" onclick="location.href='/itblog/main'"></i>
+        <span class="tooltip">홈</span>
+    </div>
+
+    <!-- 오른쪽 섹션 -->
+    <div class="right-section">
+        <!-- 사용자 이메일 -->
+        <div id="user-email"></div>
+
+        <!-- 헤더 버튼들 -->
+        <div class="header-buttons">
+            <!-- 로그인 아이콘과 툴팁 -->
+            <div class="menu-item">
+                <i class="fa-solid fa-right-to-bracket" onclick="location.href='/itblog/login'"></i>
+                <span class="tooltip">로그인</span>
+            </div>
+
+            <!-- 로그아웃 아이콘 (초기에 숨김) -->
+            <div class="menu-item">
+                <i class="fa-solid fa-xmark logout-icon" style="display: none;" id="logout-button"></i>
+                <span class="tooltip">로그아웃</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

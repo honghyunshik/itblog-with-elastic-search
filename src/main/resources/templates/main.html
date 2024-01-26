@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/7e0c444038.js" crossorigin="anonymous"></script>
+    <script src="/js/auth/jwt.js"></script>
+    <script src="/js/common/header.js"></script>
+    <script src="/js/common/leftMenu.js"></script>
+    <script src="/js/mainPage/main.js"></script>
+</head>
+<body>
+
+<div class="main-container">
+    <div th:replace="~{common/leftMenu :: header}"></div>
+
+    <div class="content-container">
+        <div th:replace="~{common/header :: header}"></div>
+
+        <div class="blog-view-options">
+            <button class="my-posts-button">내 블로그 보기</button>
+            <div class="separator"></div>
+            <button class="all-posts-button">전체 글 보기</button>
+        </div>
+        <div class="dynamic-container"></div>
+
+    </div>
+</div>
+</body>
+</html>
