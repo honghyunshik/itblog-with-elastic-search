@@ -31,11 +31,11 @@ public class MemberExceptionHandler {
                 .body(new ErrorResponseDto("유효성 검사에 실패했습니다"));
     }
 
-    @ExceptionHandler(JwtRefreshTokenNotValidException.class)
-    public ResponseEntity<ErrorResponseDto> jwtRefreshTokenNotValidExceptionHandler(){
+    @ExceptionHandler(JwtTokenNotValidException.class)
+    public ResponseEntity<ErrorResponseDto> jwtTokenNotValidExceptionHandler(){
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(new ErrorResponseDto("유효하지 않은 Refresh Token입니다"));
+                .body(new ErrorResponseDto("유효하지 않은 Token입니다"));
     }
 
     @ExceptionHandler(JwtAccessTokenAlreadyLogoutException.class)
