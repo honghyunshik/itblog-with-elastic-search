@@ -12,11 +12,11 @@ import org.example.domain.postDetail.PostDetail;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class PostpostRequestDto {
+public class SavepostRequestDto {
 
     @NotBlank(message = "제목은 비어 있을 수 없습니다.")
     @NotNull
-    @Size(min = 3, max = 100, message = "제목은 3자 이상, 100자 이하이어야 합니다.")
+    @Size(min = 3, max = 60, message = "제목은 3자 이상, 60자 이하이어야 합니다.")
     private String title;
 
     @NotBlank(message = "내용은 비어 있을 수 없습니다.")

@@ -13,15 +13,15 @@ import java.time.LocalDateTime;
 public class Post {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
     private long id;
 
     @Column(name = "post_title")
     private String title;
 
-    @Column(name = "post_regDate")
-    private LocalDateTime regDate;
+    @Column(name = "post_save_date")
+    private LocalDateTime saveDate;
 
     @ManyToOne
     @JoinColumn(name = "member_id")
@@ -29,6 +29,6 @@ public class Post {
 
     public Post(String title){
         this.title = title;
-        this.regDate = LocalDateTime.now();
+        this.saveDate = LocalDateTime.now();
     }
 }
